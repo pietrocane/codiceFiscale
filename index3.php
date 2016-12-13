@@ -1,3 +1,10 @@
+<?php
+    $Cognome = strtoupper($_POST['cognome']);
+    $Nome = strtoupper($_POST['nome']);
+    $Comune = $_POST['comune'];
+    $Sesso = $_POST['sesso'];
+?>
+
 <html>
     <head>
         <title>Codice Fiscale</title>
@@ -59,39 +66,73 @@
         </div>
 		
 		
-        <form method="post" action="index2.php">
+        <form method="post" action="index4.php">
             <fieldset>
 			
 			
 			 <br></br>
-			
-				  <div class="form-group">
-					<label class="control-label col-sm-2" for="email" >COGNOME</label>
+				 <div class="form-group">
+					<label class="control-label col-sm-2" for="email" >DATA DI NASCITA</label>
 					<div class="col-sm-10">
-					  <input type="text" class="form-control" name="cognome" placeholder="Inserisci il cognome">
+					  <input type="text" button class="btn btn-default dropdown-toggle" name="giornonascita" id="giornonascita" placeholder="DD"/>
+					  <select button class="btn btn-default dropdown-toggle" name = "mesenascita" id="mesenascita">
 					</div>
 				  </div>
-				  <br></br>
 				  
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="email" >NOME</label>
-					<div class="col-sm-10">
-					  <input type="text" class="form-control" name="nome" placeholder="Inserisci il nome">
-					</div>
-				  </div>
-				   <br></br>
-				  
-				 
-                
-                
-		
-				
-             
+        
+                    <option value="Gennaio">Gennaio</option>
+                    <option value="Febbraio">Febbraio</option>
+                    <option value="Marzo">Marzo</option>
+                    <option value="Aprile">Aprile</option>
+                    <option value="Maggio">Maggio</option>
+                    <option value="Giugno">Giugno</option>
+                    <option value="Luglio">Luglio</option>
+                    <option value="Agosto">Agosto</option>
+                    <option value="Settembre">Settembre</option>
+                    <option value="Ottobre">Ottobre</option>
+                    <option value="Novembre">Novembre</option>
+                    <option value="Dicembre">Dicembre</option></select>
+                 <input type="text" button class="btn btn-default dropdown-toggle" name="annonascita" id="annonascita" placeholder="AAAA"/><br>
+            </fieldset>
+            <fieldset>
+			<div align="center" >
+				<div class="container">
+	<div class="row">
+        <br></br>
         
         <input type="submit" name="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#processing-modal" value="Calcola Codice Fiscale"> 
 	</div>
 </div>
  <br></br>
+ 
+ <div class="form-group">
+					
+					<div class="col-sm-3">
+				<?php
+					  echo "<input type='hidden' class='form-control' name='cognome' value='" . $Cognome . "'>"
+					  
+					  ?>
+					</div>
+					<div class="col-sm-3">
+				<?php
+					   echo "<input type='hidden' class='form-control' name='nome' value='" . $Nome . "'>"
+					  
+					  ?>
+					</div>
+					
+					<div class="col-sm-3">
+				<?php
+					  echo "<input type='hidden' class='form-control' name='comune' value='" . $Comune . "'>"
+					  
+					  ?>
+					</div>
+					<div class="col-sm-3">
+				<?php
+					   echo "<input type='hidden' class='form-control' name='sesso' value='" . $Sesso . "'>"
+					  
+					  ?>
+					</div>
+				  </div>
 
 <div class="modal modal-static fade" id="processing-modal" role="dialog" aria-hidden="true">
     <div class="modal-dialog">

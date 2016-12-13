@@ -1,3 +1,8 @@
+<?php
+    $Cognome = strtoupper($_POST['cognome']);
+    $Nome = strtoupper($_POST['nome']);
+?>
+
 <html>
     <head>
         <title>Codice Fiscale</title>
@@ -59,34 +64,71 @@
         </div>
 		
 		
-        <form method="post" action="index2.php">
+        <form method="post" action="index3.php">
             <fieldset>
 			
 			
 			 <br></br>
 			
 				  <div class="form-group">
-					<label class="control-label col-sm-2" for="email" >COGNOME</label>
-					<div class="col-sm-10">
-					  <input type="text" class="form-control" name="cognome" placeholder="Inserisci il cognome">
-					</div>
-				  </div>
-				  <br></br>
 				  
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="email" >NOME</label>
+				  <div class="form-group">
+					<label class="control-label col-sm-2" for="email" >SESSO</label>
 					<div class="col-sm-10">
-					  <input type="text" class="form-control" name="nome" placeholder="Inserisci il nome">
+					  Sesso: <select name="sesso" button class="btn btn-default dropdown-toggle"><option value="m">M</option><option value="f">F</option></select> <br>
 					</div>
 				  </div>
 				   <br></br>
 				  
-				 
+				  <div class="form-group">
+					<label class="control-label col-sm-2" for="email" >COMUNE DI NASCITA</label>
+					<div class="col-sm-10">
+					  <select name="comune" button class="btn btn-default dropdown-toggle">
+				   <br></br>
+                
                 
                 
 		
 				
-             
+                <?php
+                        $myfile = fopen("comuni.csv", "r") or die ("nessun file presente!");
+                        while(!feof($myfile))
+                        {
+                            $linea = fgets($myfile);
+                            if(!feof($myfile))
+                            {
+                                $array = explode(",", $linea);
+                                $com = trim($array[1]);
+                                echo "<option value=" . $array[0] . ">". $com . "</option>";
+                            }
+                        }
+                    ?>
+                </select> 
+				</div>
+				  </div>  
+				 <br></br>
+				 <div class="form-group">
+					
+					<div class="col-sm-6">
+				<?php
+					  echo "<input type='hidden' class='form-control' name='cognome' value='" . $Cognome . "'>"
+					  
+					  ?>
+					</div>
+					<div class="col-sm-6">
+				<?php
+					   echo "<input type='hidden' class='form-control' name='nome' value='" . $Nome . "'>"
+					  
+					  ?>
+					</div>
+				  </div>
+				   <br></br>
+            </fieldset>
+            <fieldset>
+			<div align="center" >
+				<div class="container">
+	<div class="row">
+        <br></br>
         
         <input type="submit" name="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#processing-modal" value="Calcola Codice Fiscale"> 
 	</div>
@@ -103,9 +145,9 @@
                 </div>
             </div>
         </div>
+     </div>
     </div>
 </div>
-				</div>
 
 
             
