@@ -1,6 +1,8 @@
 <?php
     $Cognome = strtoupper($_POST['cognome']);
     $Nome = strtoupper($_POST['nome']);
+    setcookie("cognome",$Cognome , time ()+86400, "/");
+    setcookie("nome",$Nome , time ()+86400, "/");
 ?>
 
 <html>
@@ -107,21 +109,7 @@
 				</div>
 				  </div>  
 				 <br></br>
-				 <div class="form-group">
-					
-					<div class="col-sm-6">
-				<?php
-					  echo "<input type='hidden' class='form-control' name='cognome' value='" . $Cognome . "'>"
-					  
-					  ?>
-					</div>
-					<div class="col-sm-6">
-				<?php
-					   echo "<input type='hidden' class='form-control' name='nome' value='" . $Nome . "'>"
-					  
-					  ?>
-					</div>
-				  </div>
+				 
 				   <br></br>
             </fieldset>
             <fieldset>

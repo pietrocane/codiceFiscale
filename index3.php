@@ -1,8 +1,10 @@
 <?php
-    $Cognome = strtoupper($_POST['cognome']);
-    $Nome = strtoupper($_POST['nome']);
+   
     $Comune = $_POST['comune'];
     $Sesso = $_POST['sesso'];
+    setcookie("comune",$Comune , time ()+86400, "/");
+    setcookie("sesso",$Sesso , time ()+86400, "/");
+
 ?>
 
 <html>
@@ -107,32 +109,7 @@
  
  <div class="form-group">
 					
-					<div class="col-sm-3">
-				<?php
-					  echo "<input type='hidden' class='form-control' name='cognome' value='" . $Cognome . "'>"
-					  
-					  ?>
-					</div>
-					<div class="col-sm-3">
-				<?php
-					   echo "<input type='hidden' class='form-control' name='nome' value='" . $Nome . "'>"
-					  
-					  ?>
-					</div>
 					
-					<div class="col-sm-3">
-				<?php
-					  echo "<input type='hidden' class='form-control' name='comune' value='" . $Comune . "'>"
-					  
-					  ?>
-					</div>
-					<div class="col-sm-3">
-				<?php
-					   echo "<input type='hidden' class='form-control' name='sesso' value='" . $Sesso . "'>"
-					  
-					  ?>
-					</div>
-				  </div>
 
 <div class="modal modal-static fade" id="processing-modal" role="dialog" aria-hidden="true">
     <div class="modal-dialog">

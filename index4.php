@@ -87,15 +87,22 @@
 				</div>
 
 <?php
-if (isset($_POST['submit']))
 {
-    $Cognome = strtoupper($_POST['cognome']);
-    $Nome = strtoupper($_POST['nome']);
+    $Cognome = strtoupper($_COOKIE['cognome']);
+    $Nome = strtoupper($_COOKIE['nome']);
+    $Comune = $_COOKIE['comune'];
+    $Sesso = $_COOKIE['sesso'];
+    
+    setcookie("comune",$Comune , time ()-86400, "/");
+    setcookie("sesso",$Sesso , time ()-86400, "/");
+    setcookie("cognome",$Cognome , time ()-86400, "/");
+    setcookie("nome",$Nome , time ()-86400, "/");
+    
+    
     $Giorno = $_POST['giornonascita'];
     $Mese = $_POST['mesenascita'];
 	$Anno = $_POST['annonascita'];
-    $Comune = $_POST['comune'];
-    $Sesso = $_POST['sesso'];
+
     
    
     
