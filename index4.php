@@ -1,3 +1,8 @@
+<?php
+
+    session_start();
+
+?>
 <html>
     <head>
         <title>Codice Fiscale</title>
@@ -88,16 +93,13 @@
 
 <?php
 {
-    $Cognome = strtoupper($_COOKIE['cognome']);
-    $Nome = strtoupper($_COOKIE['nome']);
-    $Comune = $_COOKIE['comune'];
-    $Sesso = $_COOKIE['sesso'];
+    $Cognome = strtoupper($_SESSION['cognome']);
+    $Nome = strtoupper($_SESSION['nome']);
+    $Comune = $_SESSION['comune'];
+    $Sesso = $_SESSION['sesso'];
     
-    setcookie("comune",$Comune , time ()-86400, "/");
-    setcookie("sesso",$Sesso , time ()-86400, "/");
-    setcookie("cognome",$Cognome , time ()-86400, "/");
-    setcookie("nome",$Nome , time ()-86400, "/");
-    
+    $_SESSION = array();
+    session_destroy();
     
     $Giorno = $_POST['giornonascita'];
     $Mese = $_POST['mesenascita'];

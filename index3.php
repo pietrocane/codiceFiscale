@@ -1,9 +1,7 @@
 <?php
-   
-    $Comune = $_POST['comune'];
-    $Sesso = $_POST['sesso'];
-    setcookie("comune",$Comune , time ()+86400, "/");
-    setcookie("sesso",$Sesso , time ()+86400, "/");
+   session_start();
+    $_SESSION['comune'] = $_POST['comune'];
+    $_SESSION['sesso'] = $_POST['sesso'];
 
 ?>
 

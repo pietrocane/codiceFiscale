@@ -1,8 +1,7 @@
 <?php
-    $Cognome = strtoupper($_POST['cognome']);
-    $Nome = strtoupper($_POST['nome']);
-    setcookie("cognome",$Cognome , time ()+86400, "/");
-    setcookie("nome",$Nome , time ()+86400, "/");
+    session_start();
+    $_SESSION['cognome'] = strtoupper($_POST['cognome']);
+    $_SESSION['nome'] = strtoupper($_POST['nome']);
 ?>
 
 <html>
